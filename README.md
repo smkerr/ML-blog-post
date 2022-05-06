@@ -1,1 +1,1 @@
-Distill Article Template for Data Science Projects 
+Blog post for the [Hertie Data Science Lab](https://www.hertie-school.org/en/datasciencelab) detailing our attempt to [detect COVID-related fake news using Machine Learning](https://github.com/smkerr/COVID-fake-news-detection).

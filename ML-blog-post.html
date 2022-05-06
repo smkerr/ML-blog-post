@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>COVID Fake News Detection</title>
+
+  <meta property="description" itemprop="description" content="Add a short description of your article here (i.e. &quot;We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.&quot;)"/>
+
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-05-06"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-06"/>
+  <meta name="article:author" content="Marco Schmidt"/>
+  <meta name="article:author" content="Hannah Schweren"/>
+  <meta name="article:author" content="Steve Kerr"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="COVID Fake News Detection"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Add a short description of your article here (i.e. &quot;We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.&quot;)"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="COVID Fake News Detection"/>
+  <meta property="twitter:description" content="Add a short description of your article here (i.e. &quot;We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.&quot;)"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Fighting an infodemic: Covid-19 fake news dataset;citation_publication_date=2021;citation_publisher=Springer;citation_author=Parth Patwa;citation_author=Shivam Sharma;citation_author=Srinivas Pykl;citation_author=Vineeth Guptha;citation_author=Gitanjali Kumari;citation_author=Md Shad Akhtar;citation_author=Asif Ekbal;citation_author=Amitava Das;citation_author=Tanmoy Chakraborty"/>
+  <meta name="citation_reference" content="citation_title=Overview of constraint 2021 shared tasks: Detecting english covid-19 fake news and hindi hostile posts;citation_publication_date=2021;citation_publisher=Springer;citation_author=Parth Patwa;citation_author=Mohit Bhardwaj;citation_author=Vineeth Guptha;citation_author=Gitanjali Kumari;citation_author=Shivam Sharma;citation_author=Srinivas Pykl;citation_author=Amitava Das;citation_author=Asif Ekbal;citation_author=Md Shad Akhtar;citation_author=Tanmoy Chakraborty"/>
+  <meta name="citation_reference" content="citation_title=Robust fake news detection over time and attack;citation_publication_date=2019;citation_publisher=Association for Computing Machinery;citation_volume=11;citation_doi=10.1145/3363818;citation_issn=2157-6904;citation_author=Benjamin D. Horne;citation_author=Jeppe Nørregaard;citation_author=Sibel Adali"/>
+  <meta name="citation_reference" content="citation_title=Advanced machine learning techniques for fake news (online disinformation) detection: A systematic mapping study;citation_publication_date=2021;citation_publisher=arXiv;citation_doi=10.48550/ARXIV.2101.01142;citation_author=Michal Choras;citation_author=Konstantinos Demestichas;citation_author=Agata Gielczyk;citation_author=Alvaro Herrero;citation_author=Pawel Ksieniewicz;citation_author=Konstantina Remoundou;citation_author=Daniel Urda;citation_author=Michal Wozniak"/>
+  <meta name="citation_reference" content="citation_title=Fake news detection based on news content and social contexts: A transformer-based approach;citation_publication_date=2022;citation_publisher=Springer;citation_author=Shaina Raza;citation_author=Chen Ding"/>
+  <meta name="citation_reference" content="citation_title=Concept drift in bias and sensationalism detection: An experimental study;citation_publication_date=2019;citation_volume=;citation_doi=10.1145/3341161.3343690;citation_author=Shuo Zhang;citation_author=Mayank Kejriwal"/>
+  <meta name="citation_reference" content="citation_title=The impact of coronavirus on machine learning models;citation_publication_date=2020;citation_publisher=phData;citation_author= Isaksson"/>
+  <meta name="citation_reference" content="citation_title=A systematic survey on deep learning and machine learning approaches of fake news detection in the pre-and post-COVID-19 pandemic;citation_publication_date=2021;citation_publisher=Emerald Publishing Limited;citation_author=Rajshree Varma;citation_author=Yugandhara Verma;citation_author=Priya Vijayvargiya;citation_author=Prathamesh P Churi"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","creative_commons","repository_url","output","preview","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["COVID Fake News Detection"]},{"type":"character","attributes":{},"value":["Add a short description of your article here (i.e. \"We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.\") \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Marco Schmidt"]},{"type":"character","attributes":{},"value":["https://allisonkoh.github.io"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Hannah Schweren"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Kerr"]},{"type":"character","attributes":{},"value":["https://smkerr.github.io/"]}]}]},{"type":"character","attributes":{},"value":["2022-05-06"]},{"type":"character","attributes":{},"value":["Natural Language Processing"]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["https://github.com/smkerr/COVID-fake-news-detection"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["figures/BERTfig3.png"]},{"type":"character","attributes":{},"value":["bibliography.bib"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["bibliography.bib","blog-post-template.pdf","figures/BERTCNNMinor_acc_loss.png","figures/BERTfig3.png","figures/CNNMajor_acc_loss.png","figures/desc-country.png","figures/desc-major.png","figures/prf1-major.png","figures/tt.png","figures-ours/Character_per_tweet.png","figures-ours/Diagramm_v2.png","figures-ours/google-scholar.pdf","figures-ours/misclassifiedFN.png","figures-ours/misclassifiedFP.png","figures-ours/new_data.png","figures-ours/scatterplot_new_data.png","figures-ours/scatterplot_training_data.png","figures-ours/Word_frequency.png","figures-ours/Words_per_tweet.png","ML-blog-post_files/anchor-4.2.2/anchor.min.js","ML-blog-post_files/bowser-1.9.3/bowser.min.js","ML-blog-post_files/distill-2.2.21/template.v2.js","ML-blog-post_files/header-attrs-2.11/header-attrs.js","ML-blog-post_files/jquery-3.6.0/jquery-3.6.0.js","ML-blog-post_files/jquery-3.6.0/jquery-3.6.0.min.js","ML-blog-post_files/jquery-3.6.0/jquery-3.6.0.min.map","ML-blog-post_files/popper-2.6.0/popper.min.js","ML-blog-post_files/tippy-6.2.7/tippy-bundle.umd.min.js","ML-blog-post_files/tippy-6.2.7/tippy-light-border.css","ML-blog-post_files/tippy-6.2.7/tippy.css","ML-blog-post_files/tippy-6.2.7/tippy.umd.min.js","ML-blog-post_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="ML-blog-post_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="ML-blog-post_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="ML-blog-post_files/popper-2.6.0/popper.min.js"></script>
+  <link href="ML-blog-post_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="ML-blog-post_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="ML-blog-post_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="ML-blog-post_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="ML-blog-post_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="ML-blog-post_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="ML-blog-post_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"COVID Fake News Detection","description":"Add a short description of your article here (i.e. \"We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.\")","authors":[{"author":"Marco Schmidt","authorURL":"https://allisonkoh.github.io","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Hannah Schweren","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Steve Kerr","authorURL":"https://smkerr.github.io/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-06T00:00:00.000+02:00","citationText":"Schmidt, et al., 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>COVID Fake News Detection</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Natural Language Processing</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Add a short description of your article here (i.e. “We present a deep learning approach to classifying labeled texts and phrases in party manifestos, using the coding scheme and documents from the Manifesto Project Corpus.”)</p></p>
+</div>
+
+<div class="d-byline">
+  Marco Schmidt <a href="https://allisonkoh.github.io" class="uri">https://allisonkoh.github.io</a> 
+  
+,   Hannah Schweren  
+  
+,   Steve Kerr <a href="https://smkerr.github.io/" class="uri">https://smkerr.github.io/</a> 
+  
+<br/>2022-05-06
+</div>
+
+<div class="d-article">
+<h2 id="abstract">Abstract</h2>
+<p>Fake news represents one of the most pressing issues faced by social media ecosystems today. While there have been many examples of fake news consumption leading to the adoption of inaccurate beliefs and harmful behaviors, fake news regarding the Covid-19 pandemic is arguably more dangerous since it may lead to worse public health outcomes.</p>
+<p>While machine learning has advanced our ability to identify and root out fake news, this approach is not with- out its limitations. Fake news, by its very nature, is con- stantly evolving. A machine learning algorithm capable of detecting fake news with high effectiveness at one point in time may become significantly less effective when applied to news sampled from a later time period, a phenomenon referred to as “concept drift.”</p>
+<p>Using the Covid-19 Fake News dataset which comprises 10,700 hand-labeled Covid-related social media posts (fake vs. real), we ask the following question: To what extent does the context-dependent and fast-moving nature of fake news represent a limitation for ML models?</p>
+<p>For the first section, we create a fake news detection algorithm using existing Covid-related real and fake news datasets. The best performing model was Linear SVC, reaching a F1-score of 0.9345. For the second section, we measure the decay of our fake news detection algorithm by applying it to our own dataset comprised of recent Covid-related posts. On the new dataset the model reached a F1-score of 0.8139, indicating the presence of a substantial amount of concept drift when it comes to Covid-related social media posts.</p>
+<h2 id="introduction-background">Introduction / Background</h2>
+<p>Misinformation has always been a threat to society and democracy.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Today, this danger is fueled by the possibility of its rapid diffusion through social media. Our project will therefore focus on the identification of such so-called “fake news” on social media platforms. Machine learning (ML) and Natural Language Processing (NLP) enable us to detect fake news so that we might warn the reader and raise awareness about misinformation <span class="citation" data-cites="lazer2018science">(<a href="#ref-lazer2018science" role="doc-biblioref">Lazer et al. 2018</a>)</span>.</p>
+<p>While some ML models are already very efficient at classifying whether news is real or fake, such models still face limitations. ML models are often bound to the data upon which they were trained, which is why the fast-moving nature of online content could degrade their effectiveness. Seeing as fake news is highly influenced by current events, we hypothesize that temporally rigid training sets are prone to a decline in effectiveness. For our project we are focusing on the topic of Covid-19, because it is a current, politicized, and highly relevant topic and therefore creates room for misinformation and intentional manipulation in social media.</p>
+<p>Our project comprises two main components. The first stage of our project will involve using with the Covid-19 Fake News Detection dataset to create an end-to-end ML project with a model for fake news detection which has a high-level of effectiveness. This part is based on similar work performed by <em>Dipta Das et al.</em> who used the same dataset to create fake news detection models <span class="citation" data-cites="dipta2021heuristic">(<a href="#ref-dipta2021heuristic" role="doc-biblioref">Dipta Das, Basak, and Dutta 2021</a>)</span>.</p>
+<p>In the second stage, we address the aforementioned is- sue of the time- and context-related decline in effectiveness. Specifically, we attempt to answer the following research question: <em>To what extent does the contextual and fast-moving nature of fake news represent a limitation for ML models, specifically in the context of Covid-19 related social media data?</em> For this, we replicate the methods used by the authors of the original dataset to create our own more recent dataset.</p>
+<p>We use methods consistent with those employed by the authors of the original dataset to label the new data (“real” or “fake”). We then apply the model we developed in the first section to both the original dataset and the new dataset and compare performance metrics to approximate the amount by which “concept drift” (and potentially other influences in the data sampling method) has degraded our model. By examining the way in which fake news detection algorithms decay over time, we hope to better understand the limitations of applying ML to the issue of fake news.</p>
+<h2 id="proposed-method">Proposed Method</h2>
+<p>This section details our approach to determining the extent to which concept drift degrades the quality of fake news detection algorithms. To measure concept decay, we require datasets from two distinct time periods. As discussed in further detail in Section 4: Experiments, we use the Covid-19 Fake News Detection dataset as our original dataset. We use methods consistent with those of the authors of the original dataset to create our own dataset which comprises more recent Covid-related social media posts. We replicate the methods of the original authors as closely as possible, so as to hold everything constant regarding the datasets aside from the timeframes in which they were collected.</p>
+<p>We use the original dataset to train and tune a binary classification algorithm capable of correctly detecting fake news at a competitive rate. As part of training the algorithm, we pre-process the text data. Pre-processing involves standard tasks such as tokenization, lemmatization, as well as removing non-alphanumeric characters and stopwords in order to make the contents of each tweet more usable. Furthermore, certain tweets require the removal of URLs and HTML escape code. The motivation here to is to reduce the contents of each tweet to an amount which maximizes the amount of information that can be obtained using a ML algorithm.</p>
+<p>Once the text data has been pre-processed, we count vectorize dataset, thereby creating a matrix of token counts for each tweet. We count vectorize both unigrams (i.e., individual words) and bigrams (i.e., pairs of neighboring words) in order to take the words themselves but also their contexts into consideration. We then transform the count matrix into a normalized term frequency-inverse document fequency (TF-IDF) representation.</p>
+<p>The TF-IDF formula consists of two parts. The term frequency (TF) represents the number of instances that a word appears in a tweet. The inverse document frequency (IDF) is computed by taking the logarithm of the total number of tweets divided by the number of tweets which contain a given word. Where t denotes the terms, d denotes each tweet, df(t) denotes the frequency of a given word in the tweet, and n represents the total number of tweets. One is added to the numerator and denominator to prevent zero divisions. As a result, the TF-IDF for a word increases as its frequency in a tweet increases and decreases as the number of tweets in the dataset containing that word increases.</p>
+<p>To extract further information from our text data, we transform the words from each tweet into word vectors or “word embeddings” in order to create meaning representations for each word. We then take the average of all the word vectors for each tweet to create a meaning representation for the overall tweet. Word embeddings are obtained using Global Vector for Word Representation (GloVe) pre-trained word vectors developed by researchers at Stanford University using an unsupervised learning algorithm in order to derive the relationship between words. These word embeddings combined with the TF-IDF features represent our feature set.</p>
+<p>To obtain our baseline, we create several common classification algorithms including Linear SVC, Logistic Regression, Gradient Boosting, and a Decision Tree classifier using default settings. This is consistent with the methods employed by <em>Patwa et al.</em> in their original paper. <span class="citation" data-cites="patwa2021fighting">(<a href="#ref-patwa2021fighting" role="doc-biblioref">Patwa, Sharma, et al. 2021</a>)</span> As discussed in further detail in Section 4: Experiments, the Linear SVC with <em>sklearn</em>’s default parameters represents the most competitive model, obtaining a F1-score of 0.9281 when applied to the test set. As such, 0.9281 represents our baseline score which we aimed to exceed.</p>
+<p>To create a fake news detection algorithm capable of outperforming the baseline model, we trained several classification algorithms which are often applied to fake news detection problems including SVM, Logistic Regression, XGBoost, AdaBoost, and a Voting Classifier which combines the aforementioned classification algorithms. These classifiers were trained on the original dataset’s training set. We then use the validation set to evaluate performance, optimize hyperparameters, and to troubleshoot issues of model underfitting/overfitting. Once we had calibrated our best model, we applied to the test set to evaluate its performance. This concludes the first objective of our project: creating a competitive fake news detection algorithm.</p>
+<p>In order to answer our key academic question regarding the extent to which the context-dependent and fast-moving nature of fake news represents a limitation for ML models, the second objective of our project, we start by using the F1 metric obtained from applying our best model to the original dataset’s test set to establish our algorithm’s baseline performance. We then apply the same algorithm to our new data.</p>
+<p>If our assumptions hold, then the difference between the F1-scores obtained when the algorithm is applied to the original dataset versus the new dataset represents an estimate of the extent to which concept drift has degraded the quality of our fake news detection algorithm. In doing so, we gain insight into the nature of fake news and the limitations associated with ML models’ attempt to counter it.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:workflow"></span>
+<img src="figures-ours/Diagramm_v2.png" alt="Workflow" width="100%" />
+<p class="caption">
+Figure 1: Workflow
+</p>
+</div>
+</div>
+<h2 id="related-work">Related Work</h2>
+<p>The literature offers many similar approaches, for example, <em>Varma, Rajshree et al.</em> conducted a review of various ML and Deep Learning methods applied to the same topic coming to the conclusion, that “Naive Bayes, Support Vector Machine, and Logistic regression are the most widely used supervised ML algorithms for developing fake news detection models” <span class="citation" data-cites="varma2021systematic">(<a href="#ref-varma2021systematic" role="doc-biblioref">Varma et al. 2021</a>)</span>. They also address the issue that the quality of the prediction naturally depends on the quality of the training data. So, the problem of limited amount of labeled data can pose a problem here. Further, they state that traditional models are outperformed by deep learning models. this means that our classifier cannot keep up with state of the art models but still provides relevant results.</p>
+<p>As mentioned in the introduction, the idea for the first part of our project is based on the paper of <em>Patwa et al.</em> <span class="citation" data-cites="patwa2021fighting">(<a href="#ref-patwa2021fighting" role="doc-biblioref">Patwa, Sharma, et al. 2021</a>)</span> which provided a good starting point for our further experimenting with the original and the new dataset. They get their best result with a Support Vector Machine, reaching 0.9281.</p>
+<p>We hypothesized that there would be a reduction in the predictive power of our model over time. This assumption was based on previous research on the phenomenon of “concept drift” <span class="citation" data-cites="horne2020">(<a href="#ref-horne2020" role="doc-biblioref">Horne, Nørregaard, and Adali 2019</a>)</span>. We assume that fake news constitutes non-stationary data whose characteristics “might shift over time because the spreaders of false news are conscious of the fact that automatic detection systems could detect them” <span class="citation" data-cites="choras2021">(<a href="#ref-choras2021" role="doc-biblioref">Choras et al. 2021</a>)</span>. This is related to the problem that <em>Raza et al.</em> diagnose as being a rather common challenge, stating that “most models are trained on the current data (…) which may not generalize to future events” <span class="citation" data-cites="raza2022fake">(<a href="#ref-raza2022fake" role="doc-biblioref">Raza and Ding 2022</a>)</span>.</p>
+<p>A number of researchers analysed the issue of concept drift on fast-evolving topics such as Covid-19 and highlight that stationary data might not be appropriate to adapt to the continuous changes. <em>Zhang et al.</em> took a similar approach to ours to work on the topic of fake news, stating that a gap of two years leads to a significant concept drift <span class="citation" data-cites="9073558">(<a href="#ref-9073558" role="doc-biblioref">Zhang and Kejriwal 2019</a>)</span>. They also evoke the ethical dimension of this as the temporal component of fake news classification weakens the effectiveness of models over time and thus provide less reliable results. <em>Isaksson</em> dedicates their research, as we do, specifically to the subject of Covid-19 and the impact of concept drift in this area. They provide an overview of more elaborate techniques to detect concept drift <span class="citation" data-cites="isaksson2020">(<a href="#ref-isaksson2020" role="doc-biblioref">Isaksson 2020</a>)</span>.</p>
+<h2 id="experiments">Experiments</h2>
+<p><strong>Original Data</strong>: We use the Covid-19 Fake News Detection dataset created in 2020 by <em>Patwa et al.</em> and featured in the Constraint@AAAI2021 competition <span class="citation" data-cites="patwa2021fighting">(<a href="#ref-patwa2021fighting" role="doc-biblioref">Patwa, Sharma, et al. 2021</a>)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The dataset comprises 10,700 social media posts from various platforms including Twitter, Facebook, and Instagram. All content is related to the topic of Covid-19 and only English content is considered. Each post contains a falsifiable statement which has been labeled either “real’’ or”fake.’’</p>
+<p><em>Patwa et al.</em>’s Covid-19 Fake News Detection dataset has already been split into training (60%), test (20%), and validation sets (20%). The dataset is approximately balanced between real (52.3%) and fake (47.7%). Details regarding the distribution of real and fake posts across training, test, and validation sets can be found in Table 1.</p>
+<p>“Fake’’ claims are collected from various fact-checking websites such as PolitiFact, Snopes, Boomlive, etc. and from tools like Google fact-check-explorer and IFCN chatbot.”Real’’ claims include tweets from credible and relevant Twitter accounts such as the World Health Organization (WHO) and the Centers for Disease Control and Prevention (CDC) among others.</p>
+<p>We acknowledge the shortcomings associated with sourcing “real’’ data exclusively from Twitter while sourcing”fake’’ data from various social media platforms. To correct for this, we remove all social media posts exceeding Twitter’s 280 character limit from the dataset during pre-processing in an effort to make the “real” and “fake” data more comparable. While this did reduce the total number of observations, the amount of data is still sufficient to proceed. Moreover, we maintain the roughly equal split between real (49.1%) and fake (50.9%) social media posts in the dataset. See Table 2 for a more detailed breakdown.</p>
+<p>To familiarize ourselves with the data and to detect potential biases, we conducted an exploratory analysis. Our analysis revealed that the number of characters (Figure 3) and the number of words (Figure 4) are approximately balanced between real and fake posts.</p>
+<p>Additionally, we examined high-frequency words (Figure 2) for both fake and real claims to gain further insight into the data. No significant discrepancies could be identified.</p>
+<p>Lastly, we used part-of-speech tagging (Table 2) to gain a deeper understanding of the tweets. Besides a slight imbalance in the frequency of nouns between the real (51.3%) and fake (59.7%) posts, the overall balance gave no indication of significant biases in the dataset (Table 3).</p>
+<p>In sum, our exploratory analysis did not uncover any significant underlying issues with the Covid-19 Fake News Detection dataset, thereby allowing us to proceed with our project.</p>
+<p><strong>New data</strong>: For the second part of the project, we created our own dataset of more recent fake and real posts which were published between January and April 2022. We employed methods which closely mirror those used in the original paper by <em>Patwa et al.</em> so as to ensure that our dataset is comparable to the original dataset in all aspects aside from time period. Thus, we collected tweets from the same Twitter accounts and used Politifact.com as a source for fake news, as the authors did for the original dataset.</p>
+<p>While the authors of the original dataset did use additional fact-checking sources beyond PolitiFact when compiling fake claims such as Snopes, Boomlive, and Google fact-check-explorer among others, due to time constraints, we only use PolitiFact.com. Despite this, we were still able to create a large enough dataset to draw conclusions. In the creation of our dataset, we took special care to maintain an equal share of fake and real posts within the dataset (the final new dataset contains 100 real and 100 fake posts). An overview of the data collection process is provided in Figure 5.</p>
+<p><strong>Evaluation method</strong>: The fake news detection algorithm that we build during the the first part of our project is evaluated using a F1-score. We consider our fine-tuned model to be successful if it achieves a higher F1-score than our baseline model which received a F1-score of 0.9281. The F1-score is one of the most important measures for machine learning model’s effectiveness as it provides the harmonic mean of the precision and recall. Thus it is a good indicator for our models’ performance.</p>
+<p>In this formula, <span class="math inline">\(TP\)</span> represents True Positives (i.e., real posts correctly classified as real), whereas <span class="math inline">\(FP\)</span> represents False Positives (i.e., fake posts which were wrongly classified as real) and the <span class="math inline">\(FN\)</span> represents False Negatives (i.e., real posts which were wrongly classified as fake).</p>
+<p>The F1-score is also present in the second part of our project where we attempt to quantify the amount of “concept drift” associated with Covid-related fake news. As explained in Section 3: Proposed Methods, we apply our fine-tuned fake news detection algorithm which was developed during the first part of the project to both the original dataset and the new dataset which we have created ourselves. The difference between the two F1-scores indicates the magnitude of the concept drift associated with Covid-related fake news between the two time periods in which the datasets were created.</p>
+<p>While we acknowledge that there are several reasons which could explain the difference in F1-scores such as inconsistencies in the way both datasets were created, we believe that any gap between the two F1-scores contains valuable information regarding the magnitude to which concept drift may be present.</p>
+<p><strong>Software</strong>: The project was conducted using the Python programming language. Besides fundamental Python packages such as pandas and <em>numpy</em>, we use <em>scikit-learn</em> for pre-processing text data, performing grid searches, training ML classifiers, and displaying results. Additionally, our <em>XGBoost</em> models were based on the open-source software library of the same name. <em>NLTK</em> is used for NLP-related tasks such as pre-processing text data. <em>SpaCy</em> is used for additional NLP-related techniques which, in turn, relied upon the GloVe pre-trained word vectors for extracting word embeddings from the text data. Additionally, the <em>HyperOpt</em> package was used for hyper-parameter optimization. Furthermore, we used Google Colab for drafting our code, GitHub for version control and collaboration, as well as Overleaf for project documentation.</p>
+<p><strong>Experimental details</strong>: When creating our baseline model, we selected off-the-shelf models including Logistic Regression, Decision Tree, Gradient Boosting, and Linear SVC classifiers. We used default parameters for all models when identifying the most highest-scoring model (based on on F1-score) to serve as our baseline.</p>
+<p>For the word embedding feature extraction process, we relied upon <em>SpaCy</em>’s English-language reduced word vector table with 20,000 unique vectors for nearly 500,000 words which was derived from pre-trained word vectors from the GloVe Common Crawl. Through this process, a vector of 300 dimensions was generated based on the text inputs of each individual tweet. These were transformed into feature columns and used to improve our model beyond what would be possible using only TF-IDF features.</p>
+<p>When it came to fine-tuning our own model to out-perform the baseline model, we performed an optimization of hyperparameters for the feature extraction by using a grid search with the default 5-fold cross validation and scored based on the F1-score metric.</p>
+<p>The optimization of the Support Vector Classifier (SVC), Logistic Regression, and AdaBoost classifiers was performed using cross-validation and grid search. Based on the results, the highest performing parameters for a SVM classifier was a n-gram range of (1, 2) with the regularization parameter set equal to 10 while using the values of <span class="math inline">\(y\)</span> to automatically adjust weights inversely proportional to class frequencies in the input data as follows: <span class="math display">\[\frac{n\_samples}{(n\_classes * np.bincount(y))}\]</span> The SVC kernel was also set equal to “linear” and the probability estimates enabled so that such estimates might be incorporated into the soft Voting Classifier at a subsequent stage. The computationally expensive probability estimates were partly compensated by increasing the the size of the kernel cache.</p>
+<p>For the Logistic Regression classifier, our grid search showed that limiting the number of iterations to 1000, using SAGA (i.e., a modified form of the Stochastic Average Gradient) as the solver, and removing the regularization parameter optimized our model.</p>
+<p>For the AdaBoost classifier, our grid search revealed that setting the number of estimators equal to 500 and the learning rate equal to 1 significantly improved model performance. The AdaBoost model also benefited from slightly modifying the pre-processing pipeline so that it would receive bigrams (i.e., word pairings) rather than unigrams (i.e., individual words) as input.</p>
+<p>Lastly, the optimization of the XGBoost classifier was performed with an HyperOpt algorithm which involved minimizing the AUC score. This hyperparameter optimization revealed that setting maximum depth of a tree equal to 3, the minimum hessian needed for a child to be created equal to 3, the number of estimators equal to 550, the learning rate equal to 0.2, and randomly sampling 85% of the training set prior to growing trees would optimize model performance.</p>
+<p>The Voting Classifier combines all other fine-tuned classifiers: SVM, Logistic Regression, AdaBoost and XGBoost. The voting decisions are based on class probabilities of the different classifiers (i.e., soft voting).</p>
+<p><strong>Results</strong>: To create our baseline, we fit Logistic Regression, Decision Tree, Gradient Boosting and Linear SVC classifiers to our training set. Table 4 provides an overview of the quantitative performance of our baseline models. The Linear SVC classifier reached the highest F1-score with 0.9281 on the test set.</p>
+<p>By fine-tuning our models with the aforementioned parameters we beat our baseline model and achieved the results presented in table 5 and 6. The SVM classifier outperformed the other models with a F1-score of 0.9345 (without word embedding ) and 0.9383 (with word embedding). Even though including word embeddings improved our model, it also drastically increased the runtime as it naturally enlargened the dataset.</p>
+<p>Table 4 and 5 further show the results for testing the models on our new dataset. The SVM scores a result of 0.8494 on the new data. The Logistic Regression classifier performs slightly better than SVM, obtaining an F1-score of 0.8546 when applied to the new dataset. Overall, the F1-score dropped by more or less 0.1 for all of the models when applied to the new data.</p>
+<p><strong>Comment on quantitative results</strong>: The results match our expectations. We can see that, mirroring the results of <em>Patwa et al.</em>. Even though all models provide acceptable results, the SVM model possesses the highest F1-score. <span class="citation" data-cites="patwa2021overview">(<a href="#ref-patwa2021overview" role="doc-biblioref">Patwa, Bhardwaj, et al. 2021</a>)</span>. Moreover, the discovery that the use of bigrams instead of unigrams further improved the performance of SVM model matches our expectation since word proximity can be expected to contain important information regarding the context of words based on their proximity to one another.</p>
+<p>The addition of the word embeddings improved the F1-score across the board for all classifiers and an all datasets. Thus, word embedding have once again proven their capability of boosting the performance of ML classifiers when it comes to NLP tasks.</p>
+<p>With regard to the tuning of hyper-parameters, an improvement was also expected, however the observed improvement compared to the baseline is not as substantial as previously anticipated. On the contrary, the performance of the Voting Classifier is worse than expected since it doesn’t exceed the SVM classifier. Overall, we have experienced constraints in tuning classifiers by conventional means. Solutions to achieve further improvements, like word embedding, required more extensive pre-processing, which is, by its very nature, more computationally expensive.</p>
+<h2 id="analysis">Analysis</h2>
+<p>For further analysis we created scattertext plot<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (Figure 6) visualizing which words and phrases in the training set correspond more often with real or fake tweets. The <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-axes are dense ranks for the mostly associated terms with regard to their association with real and fake tweets respectively. One element that can be observed in the plot is that some terms which often correspond with real news (blue) are associated with India, while terms relating to American presidents are more often associated with fake news.</p>
+<p>It can also be observed that certain terms with a high association are hashtags or even Twitter handles (e.g. indafightscorona), which might suggest that models base their classification on them. This raises the question of whether hashtags and Twitter handles should be removed in the pre-processing stage. There appears to be no simple answer, since hashtag and Twitter handles can also replace words in tweets, in which case excluding the contents of these hashtags would involve discarding potentially very useful information.</p>
+<p>A scattertext plot was also created for the new dataset. However, given the very limited amount of tweets, the density ranks show less association for terms and is therefore less informative.</p>
+<p>A preliminary error analysis conducted on the validation set allowed us to detect some duplicates in the dataset. We decided to remove those as they could cause a distortion of our model training and results.</p>
+<p>Figures 7 and 8 present a random sample of the social media posts which were misclassified by our algorithm when applied to the test set. By manually analyzing them we could not detect a clear pattern that characterizes the false negatives and positives.</p>
+<p>However, it is remarkable that fake social media posts which were misclassified as true are not easily classifiable as fake news but would require expert knowledge or further research. One reason for this is the occurrence of words like “cases” or “details” that are associated with real news and also appeared more often in the real posts from the training data. (Figure 9 in the Appendix provide an overview of the quantity of words in fake and real news for the new dataset)</p>
+<p><strong>Ethics</strong>: When conducting a project on fake news, it is important to also consider the ethical background. First, we would like to discuss the data collection process for our second part, as web-scraping always contains an ethical dimension. We followed all the rules of polite scraping, by using APIs when possible (in the case of Twitter), and by only scraping small amounts of data.</p>
+<p>Regarding the context of fake news classification in general, further concern about ethical issues would be appropriate for a larger-scale work that goes beyond our project. For example, while we have an appropriate proportion of false negatives and false positives for a machine learning algorithm, in real-world even the smallest rate of misclassification could pose a problem for the readers and instead of helping could lead them to be further misled. This is exactly the opposite of our desired outcome, and even the best model will always contain a rate, however small, of misclassified statements. It is therefore essential that even if the application of our model could achieve an overall improvement of readers insights in fake news, that this aspect is kept in mind before deploying the model in a real-world context.</p>
+<h2 id="conclusions">Conclusion(s)</h2>
+<p>We can summarize by confirming our hypothesis. After achieving a relatively high performance of 0.9383 with SVM, the predictive power was reduced quite strongly when we applied it to our new fake and real news dataset (0.8494). We assume that this reduction, however, is not solely attributable to the concept drift (for example, there might be words in the new dataset that were not present in the training set). However, based on previous research on this, we suspect that concept drift strongly contributes to the prediction loss on the new data.</p>
+<p>In the course of our project, we were able to continuously increase our skill set. This of course refers to the set up of our end-to-end machine learning project, but it also includes working with the Twitter API, web-scraping from PolitiFact’s website, manipulating Python data structures as well as other aspects of the Python programming language. It was encouraging that we were able to improve our model performance over the course of the project (albeit minimally) to beat our baseline model.</p>
+<p>The result of our project and the testing of our hypothesis could ideally be analyzed more thoroughly by conducting more detailed research that compares close to continuous time periods instead of just two different ones. This would allow a more meaningful analysis of the concept drift over a span of time to observe the expected gradual decreasing performance. Unfortunately, there was not enough time for this within the framework of this project. However, this represents an exciting area of potential future research.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>We thank <em>dipta2021heuristic</em> for providing the CONSTRAINT-2021 dataset which we used to train and test our models as well as used as a benchmark for our new data.</p>
+<p class="heading" id="section"></p>
+<h2 id="rmarkdown-tips">RMarkdown Tips</h2>
+<p><strong>Footnotes and Sidenotes</strong></p>
+<p>You can use footnotes<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> or sidenotes to elaborate on a concept throughout the paper.</p>
+<aside>
+This is a side note.
+</aside>
+<p><strong>Below is an example of a figure:</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:fig1"></span>
+<img src="figures/BERTfig3.png" alt="Model architecture" width="100%" />
+<p class="caption">
+Figure 2: Model architecture
+</p>
+</div>
+</div>
+<p><strong><em>Note</em></strong>: <strong>Feel free to use some of the code from your project to explain your experiments. See example code block below.</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIM <span class="op">=</span> <span class="bu">len</span>(LABEL.vocab)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DROPOUT <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N_FILTERS <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>FILTER_SIZES <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> BERTCNN(bert,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                OUTPUT_DIM,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                DROPOUT,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                N_FILTERS,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                FILTER_SIZES)</span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-choras2021" class="csl-entry" role="doc-biblioentry">
+Choras, Michal, Konstantinos Demestichas, Agata Gielczyk, Alvaro Herrero, Pawel Ksieniewicz, Konstantina Remoundou, Daniel Urda, and Michal Wozniak. 2021. <span>“Advanced Machine Learning Techniques for Fake News (Online Disinformation) Detection: A Systematic Mapping Study.”</span> arXiv. <a href="https://doi.org/10.48550/ARXIV.2101.01142">https://doi.org/10.48550/ARXIV.2101.01142</a>.
+</div>
+<div id="ref-dipta2021heuristic" class="csl-entry" role="doc-biblioentry">
+Dipta Das, Sourya, Ayan Basak, and Saikat Dutta. 2021. <span>“A Heuristic-Driven Uncertainty Based Ensemble Framework for Fake News Detection in Tweets and News Articles.”</span> <em>arXiv e-Prints</em>, arXiv–2104.
+</div>
+<div id="ref-horne2020" class="csl-entry" role="doc-biblioentry">
+Horne, Benjamin D., Jeppe Nørregaard, and Sibel Adali. 2019. <span>“Robust Fake News Detection over Time and Attack.”</span> <em>ACM Trans. Intell. Syst. Technol.</em> 11 (1). <a href="https://doi.org/10.1145/3363818">https://doi.org/10.1145/3363818</a>.
+</div>
+<div id="ref-isaksson2020" class="csl-entry" role="doc-biblioentry">
+Isaksson. 2020. <span>“The Impact of Coronavirus on Machine Learning Models.”</span> <a href="https://www.phdata.io/blog/the-impact-of-covid-19-on-machine-learning-models/">https://www.phdata.io/blog/the-impact-of-covid-19-on-machine-learning-models/</a>.
+</div>
+<div id="ref-lazer2018science" class="csl-entry" role="doc-biblioentry">
+Lazer, David MJ, Matthew A Baum, Yochai Benkler, Adam J Berinsky, Kelly M Greenhill, Filippo Menczer, Miriam J Metzger, et al. 2018. <span>“The Science of Fake News.”</span> <em>Science</em> 359 (6380): 1094–96.
+</div>
+<div id="ref-patwa2021overview" class="csl-entry" role="doc-biblioentry">
+Patwa, Parth, Mohit Bhardwaj, Vineeth Guptha, Gitanjali Kumari, Shivam Sharma, Srinivas Pykl, Amitava Das, Asif Ekbal, Md Shad Akhtar, and Tanmoy Chakraborty. 2021. <span>“Overview of Constraint 2021 Shared Tasks: Detecting English Covid-19 Fake News and Hindi Hostile Posts.”</span> In <em>International Workshop on Combating Online Hostile Posts in Regional Languages During Emergency Situation</em>, 42–53. Springer.
+</div>
+<div id="ref-patwa2021fighting" class="csl-entry" role="doc-biblioentry">
+Patwa, Parth, Shivam Sharma, Srinivas Pykl, Vineeth Guptha, Gitanjali Kumari, Md Shad Akhtar, Asif Ekbal, Amitava Das, and Tanmoy Chakraborty. 2021. <span>“Fighting an Infodemic: Covid-19 Fake News Dataset.”</span> In <em>International Workshop onCombating Online Hostile Posts in Regional Languages During Emergency Situation</em>, 21–29. Springer.
+</div>
+<div id="ref-raza2022fake" class="csl-entry" role="doc-biblioentry">
+Raza, Shaina, and Chen Ding. 2022. <span>“Fake News Detection Based on News Content and Social Contexts: A Transformer-Based Approach.”</span> <em>International Journal of Data Science and Analytics</em>, 1–28.
+</div>
+<div id="ref-varma2021systematic" class="csl-entry" role="doc-biblioentry">
+Varma, Rajshree, Yugandhara Verma, Priya Vijayvargiya, and Prathamesh P Churi. 2021. <span>“A Systematic Survey on Deep Learning and Machine Learning Approaches of Fake News Detection in the Pre-and Post-COVID-19 Pandemic.”</span> <em>International Journal of Intelligent Computing and Cybernetics</em>.
+</div>
+<div id="ref-9073558" class="csl-entry" role="doc-biblioentry">
+Zhang, Shuo, and Mayank Kejriwal. 2019. <span>“Concept Drift in Bias and Sensationalism Detection: An Experimental Study.”</span> In <em>2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)</em>, 601–4. <a href="https://doi.org/10.1145/3341161.3343690">https://doi.org/10.1145/3341161.3343690</a>.
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Our GitHub repository can be accessed here: <a href="https://github.com/smkerr/COVID-fake-news-detection" class="uri">https://github.com/smkerr/COVID-fake-news-detection</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The competition can be accessed here: <a href="https://competitions.codalab.org/competitions/26655" class="uri">https://competitions.codalab.org/competitions/26655</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Package Repository can be accessed here: <a href="https://github.com/JasonKessler/scattertext" class="uri">https://github.com/JasonKessler/scattertext</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>This is a footnote. You can view this by hovering over the footnote in text.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+<h3 id="updates-and-corrections">Corrections</h3>
+<p>If you see mistakes or want to suggest changes, please <a href="https://github.com/smkerr/COVID-fake-news-detection/issues/new">create an issue</a> on the source repository.</p>
+<h3 id="reuse">Reuse</h3>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/smkerr/COVID-fake-news-detection">https://github.com/smkerr/COVID-fake-news-detection</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
