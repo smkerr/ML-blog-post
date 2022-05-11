@@ -52,15 +52,8 @@ While some ML models are already very efficient at classifying whether news is r
 
 This blog post will walk you through the two main components of our work:
 
-1. Building a fake news detection algorithm with a high level of effectiveness using the [Covid-19 Fake News dataset](https://paperswithcode.com/dataset/covid-19-fake-news-dataset). This part is based on similar work performed by *Dipta Das et al.* who used the same dataset to create fake news detection models [@dipta2021heuristic].
-2. Applying our fake news detection algorithm to more recent data which we have collected ourselves by replicating the methods of the authors of the original dataset. In this stage, we address the aforementioned issue of the time- and context-related decline in model performance. 
-
-This blog post will present our approach to Covid Fake News Classification by
-
-* providing a brief overview of related research
-* explaining our method (pre-processing, training and testing of model on new data)
-* presenting our experiments and results
-* summarizing the result
+1. Building a fake news detection algorithm with a high level of effectiveness using the [Covid-19 Fake News dataset](https://paperswithcode.com/dataset/covid-19-fake-news-dataset).
+2. Applying our fake news detection algorithm to more recent data which we have collected ourselves. In this stage, we address the aforementioned issue of the time- and context-related decline in model performance.
 
 ## Related Work 
 
@@ -72,7 +65,7 @@ We hypothesized that there would be a reduction in the predictive power of our m
 
 ## Proposed Method 
 
-In order to measure concept drift, we require datasets from two distinct time periods. We use the [Covid-19 Fake News Detection](https://paperswithcode.com/dataset/covid-19-fake-news-dataset) dataset comprising 10,700 social media posts from 2020 to train our model and to baseline its performance. We then apply our algorithm to a dataset we’ve created ourselves which contains Covid-related social media posts from early 2022 in order to determine the extent to which our model’s performance declines over time. Here’s a sample tweet to demonstrate our approach. 
+In order to measure concept drift, we require datasets from two distinct time periods. We use the [Covid-19 Fake News Detection](https://paperswithcode.com/dataset/covid-19-fake-news-dataset) dataset to train our model and to baseline its performance. We then apply our algorithm to a dataset we’ve created ourselves which contains Covid-related social media posts from early 2022 in order to determine the extent to which our model’s performance declines over time. Here’s a sample tweet to demonstrate our approach. 
 
 ```{r, eval = TRUE, echo = FALSE, out.width = '100%', fig.cap = "Sample Tweet"}
 knitr::include_graphics("figures/sample-tweet.png")
