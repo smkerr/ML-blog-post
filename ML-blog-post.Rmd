@@ -28,6 +28,10 @@ knitr::opts_chunk$set(echo = FALSE)
 library(reticulate) # for rendering Python code 
 ```
 
+```{r, eval = TRUE, echo = FALSE, out.width = '100%'}
+knitr::include_graphics("figures/fake-news-detection.png")
+```
+
 ## Abstract 
 
 Fake news represents one of the most pressing issues faced by democracies in the digital age. While there have been many examples of fake news consumption leading to the adoption of inaccurate beliefs and harmful behaviors, fake news regarding the Covid-19 pandemic is especially dangerous due to its potential to impact public health outcomes. 
@@ -300,12 +304,6 @@ The table also shows the results for testing the models on our new dataset. The 
 The addition of the word embeddings improved the F1-score across the board for all classifiers and all datasets. Thus, word embedding has once again proven their capability of boosting the performance of ML classifiers when it comes to NLP tasks.
 
 On the contrary, the performance of the Voting Classifier is worse than expected since it doesn't exceed the SVM classifier. Overall, we have experienced constraints in tuning classifiers by conventional means. Solutions to achieve further improvements, like word embedding, required more extensive pre-processing, which is, by its very nature, more computationally expensive.
-
-**Comment on quantitative results**: The results match our expectations. We can see that, mirroring the results of *Patwa et al.*. Even though all models provide acceptable results, the SVM model possesses the highest F1-score. [@patwa2021overview]. Moreover, the discovery that the use of bigrams instead of unigrams further improved the performance of SVM model matches our expectation since word proximity can be expected to contain important information regarding the context of words based on their proximity to one another. 
-
-The addition of the word embeddings improved the F1-score across the board for all classifiers and an all datasets. Thus, word embedding have once again proven their capability of boosting the performance of ML classifiers when it comes to NLP tasks.
-
-With regard to the tuning of hyper-parameters, an improvement was also expected, however the observed improvement compared to the baseline is not as substantial as previously anticipated. On the contrary, the performance of the Voting Classifier is worse than expected since it doesn't exceed the SVM classifier. Overall, we have experienced constraints in tuning classifiers by conventional means. Solutions to achieve further improvements, like word embedding, required more extensive pre-processing, which is, by its very nature, more computationally expensive.
 
 ## Analysis 
 
