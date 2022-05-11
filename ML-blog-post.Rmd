@@ -16,7 +16,7 @@ creative_commons: CC BY
 repository_url: https://github.com/smkerr/COVID-fake-news-detection
 output: 
   distill::distill_article: 
-    self_contained: false
+    self_contained: true
 preview: figures/fake-news-detection.png
 bibliography: bibliography.bib
 ---
