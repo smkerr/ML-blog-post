@@ -22,10 +22,11 @@ bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, tidy.opts = list(width.cutoff = 60),tidy = TRUE)
 
 # Load dependencies 
 library(reticulate) # for rendering Python code 
+library(formatR) # formatting
 ```
 
 ```{r, eval = TRUE, echo = FALSE, out.width = '100%'}
@@ -104,6 +105,7 @@ tweet_lower = tweet.lower()
 ```{python, echo=FALSE}
 print(tweet_lower) # display results
 ```
+
 
 ```{python, echo=TRUE}
 tweet_tidy1 = re.sub(r"http(\S)+",' ', tweet_lower) # remove URLs   
