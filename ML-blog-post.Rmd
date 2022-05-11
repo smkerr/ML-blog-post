@@ -46,7 +46,7 @@ The code for our project can be accessed [here](https://github.com/smkerr/COVID-
 
 ## Background
 
-Misinformation has always been a threat to society and democracy. Today, this danger is fueled by the potential of its rapid diffusion through social media. Machine learning (ML) and Natural Language Processing (NLP) enable us to detect fake news so that we might warn the reader and raise awareness about misinformation. This blog post will therefore present our work on the identification of such so-called “fake news” on social media platforms.
+Misinformation has always been a threat to society and democracy. Today, this danger is fueled by the potential of its rapid diffusion through social media. Machine learning (ML) and Natural Language Processing (NLP) enable us to detect fake news so that we might warn the reader and raise awareness about misinformation. This blog post will therefore present our work on the identification of such Fake News on social media platforms.
 
 While some ML models are already very efficient at classifying whether news is real or fake, such models still face limitations. ML models are often bound to the data upon which they were originally trained, which is why the fast-moving nature of online content could degrade their effectiveness. Seeing as fake news is highly influenced by current events, we want to test the assumption that temporally rigid training sets are prone to a decline in effectiveness. As a current, politicized, and highly relevant topic, Covid-19 has created room for misinformation and intentional manipulation in social media, thereby representing an interesting case study.
 
