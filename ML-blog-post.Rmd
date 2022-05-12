@@ -11,7 +11,7 @@ author:
     url: https://smkerr.github.io/
 date: "`r Sys.Date()`" 
 categories: 
-  - Natural Language Processing 
+  - Machine Learning
 creative_commons: CC BY
 repository_url: https://github.com/smkerr/COVID-fake-news-detection
 output: 
