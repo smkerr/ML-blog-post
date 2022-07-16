@@ -3,7 +3,7 @@ title: "COVID Fake News Detection"
 description: |
   We construct a fake news detection algorithm using Natural Language Processing. We then use our model to quantify the extent to which these types of machine learning models degrade over time.
 author: 
-  - name: Marco Schmidt 
+  - name: Marco Schildt 
     url: https://github.com/m-schildt
   - name: Hannah Schweren
     url: https://github.com/hannahmagda
@@ -27,6 +27,8 @@ knitr::opts_chunk$set(echo = FALSE, tidy.opts = list(width.cutoff = 60),tidy = T
 # Load dependencies 
 library(reticulate) # for rendering Python code 
 library(formatR) # formatting
+py_install("nltk")
+py_install("pandas")
 ```
 
 ```{r, eval = TRUE, echo = FALSE, out.width = '100%'}
